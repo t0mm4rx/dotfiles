@@ -1,5 +1,5 @@
 !--------------------xdefauls
-URxvt.font: xft:monaco:pixelsize=13,xft:Inconsolata\ for\ Powerline 
+URxvt.font: xft:RobotoMono:pixelsize=14,xft:Inconsolata\ for\ Powerline
 Mono:size=12:minspace=False,xft:DejaVu Sans:pixelsize=18
 urxvt*termName: rxvt
 urxvt*scrollBar: false
@@ -7,7 +7,7 @@ urxvt*matcher.button: 1
 urxvt.transparent: false
 urxvt.boldFont:
 URxvt.letterSpace: -1
-Xft*dpi: 96
+!*dpi: 130
 Xft*antialias: true
 Xft*hinting: true
 Xft*hintstyle: hintfull
@@ -19,6 +19,7 @@ URxvt*fading: 0
 URxvt*tintColor: #ffffff
 URxvt*shading: 0
 URxvt*inheritPixmap: False
+URxvt.clipboard.autocopy:   true
 ! special
 *.foreground:   #c5c8c6
 *.background:   #383C4A

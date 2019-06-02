@@ -71,7 +71,7 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-export LANG=fr_FR.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -97,3 +97,6 @@ export LANG=fr_FR.UTF-8
 
 alias cl="clear"
 alias l="ls -la"
+alias cd1="cd ~/programmation/"
+
+#sway --m
