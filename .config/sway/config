@@ -256,3 +256,4 @@ exec --no-startup-id "export LANG=en_US.UTF-8"
 #exec --no-startup-id python /home/tom/.config/active.py
 exec --no-startup-id blueman-applet
 exec --no-startup-id python ~/.config/sway/bar/bar.py
+exec --no-startup-id dunst
