@@ -229,6 +229,10 @@ output DP-2 scale 1 res 2560x1080 pos 1850 0
 bindsym XF86AudioRaiseVolume exec amixer -q sset Master 3%+
 bindsym XF86AudioLowerVolume exec amixer -q sset Master 3%-
 bindsym XF86AudioMute exec amixer -D pulse set Master 1+ toggle
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl play-pause
+bindsym XF86HomePage exec playerctl previous
+bindsym XF86Mail exec playerctl next
 
 bindsym XF86MonBrightnessUp exec .config/backlight.sh +2
 bindsym XF86MonBrightnessDown exec .config/backlight.sh -2
