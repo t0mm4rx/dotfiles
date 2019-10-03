@@ -7,6 +7,10 @@ Clean install with sway.
 Use lxappearance to change themes on different frameworks.
 Main theme is Arc Darker.
 
+## Apps
+- termite (theme: https://github.com/arcticicestudio/nord-termite)
+- dunst
+
 ## Atom
 Plugins :
 - Atom Live Server
