@@ -14,7 +14,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term urxvt
+set $term termite
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
 
@@ -38,7 +38,7 @@ exec swayidle -w \
           timeout 500 'swaymsg "output * dpms off"' \
                resume 'swaymsg "output * dpms on"' \
           before-sleep 'swaylock -f -c 383c4a'
-#
+
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
@@ -110,27 +110,27 @@ exec swayidle -w \
 # Workspaces:
 #
     # switch to workspace
-    bindsym $mod+ampersand workspace 1
-    bindsym $mod+eacute workspace 2
-    bindsym $mod+quotedbl workspace 3
-    bindsym $mod+apostrophe workspace 4
-    bindsym $mod+parenleft workspace 5
-    #bindsym $mod+minus workspace 6
-    bindsym $mod+egrave workspace 7
-    bindsym $mod+underscore workspace 8
-    bindsym $mod+ccedilla workspace 9
-    bindsym $mod+agrave workspace 10
+    bindsym $mod+1 workspace 1
+    bindsym $mod+2 workspace 2
+    bindsym $mod+3 workspace 3
+    bindsym $mod+4 workspace 4
+    bindsym $mod+5 workspace 5
+    bindsym $mod+6 workspace 6
+    bindsym $mod+7 workspace 7
+    bindsym $mod+8 workspace 8
+    bindsym $mod+9 workspace 9
+    bindsym $mod+0 workspace 10
     # move focused container to workspace
-    bindsym $mod+1 move container to workspace 1
-    bindsym $mod+2 move container to workspace 2
-    bindsym $mod+3 move container to workspace 3
-    bindsym $mod+4 move container to workspace 4
-    bindsym $mod+5 move container to workspace 5
-    bindsym $mod+6 move container to workspace 6
-    bindsym $mod+7 move container to workspace 7
-    bindsym $mod+8 move container to workspace 8
-    bindsym $mod+9 move container to workspace 9
-    bindsym $mod+0 move container to workspace 10
+    bindsym $mod+Shift+1 move container to workspace 1
+    bindsym $mod+Shift+2 move container to workspace 2
+    bindsym $mod+Shift+3 move container to workspace 3
+    bindsym $mod+Shift+4 move container to workspace 4
+    bindsym $mod+Shift+5 move container to workspace 5
+    bindsym $mod+Shift+6 move container to workspace 6
+    bindsym $mod+Shift+7 move container to workspace 7
+    bindsym $mod+Shift+8 move container to workspace 8
+    bindsym $mod+Shift+9 move container to workspace 9
+    bindsym $mod+Shift+0 move container to workspace 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 #
@@ -221,7 +221,8 @@ bar {
 include /etc/sway/config.d/*
 
 # My additions
-input * xkb_layout fr
+input * xkb_layout us
+input * xkb_model mac
 
 output eDP-1 scale 1.6 res 3000x2000 pos 0 0
 output DP-2 scale 1 res 2560x1080 pos 1850 0
@@ -231,14 +232,19 @@ bindsym XF86AudioLowerVolume exec amixer -q sset Master 3%-
 bindsym XF86AudioMute exec amixer -D pulse set Master 1+ toggle
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPause exec playerctl play-pause
-bindsym XF86HomePage exec playerctl previous
-bindsym XF86Mail exec playerctl next
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
 
 bindsym XF86MonBrightnessUp exec .config/backlight.sh +2
 bindsym XF86MonBrightnessDown exec .config/backlight.sh -2
 
 bindsym $mod+Shift+R exec urxvt -e /bin/zsh -c 'wf-recorder -g "$(slurp)" -f ~/screenshots/recording"$(shuf -i 0-100000 -n 1)".mp4'
 bindsym $mod+Shift+S exec grim -g "$(slurp)" ~/screenshots/screenshot"$(shuf -i 0-100000 -n 1)".png
+
+
+bindsym $mod+Alt+1 exec "swaymsg 'input * xkb_layout us'"
+bindsym $mod+Alt+2 exec "swaymsg 'input * xkb_layout fr'"
+
 
 # smart_gaps on
 # gaps inner 10
@@ -248,7 +254,7 @@ bindsym $mod+Shift+S exec grim -g "$(slurp)" ~/screenshots/screenshot"$(shuf -i 
 default_border pixel 1
 smart_borders on
 
-output "*" background /home/tom/wallpapers/mod-national-park-teton-3000x2000-wallpaper.jpg fill
+output "*" background /home/tom/wallpapers/arch-linux-4k-mj.jpg fill
 
 client.focused          #5294e2 #285577 #ffffff #5294e2   #5294e2
 client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
@@ -257,7 +263,10 @@ client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 exec --no-startup-id "export LANG=en_US.UTF-8"
-#exec --no-startup-id python /home/tom/.config/active.py
+exec --no-startup-id "export BROWSER=google-chrome-stable"
+exec --no-startup-id python /home/tom/.config/active.py
 exec --no-startup-id blueman-applet
 exec --no-startup-id python ~/.config/sway/bar/bar.py
 exec --no-startup-id dunst
+for_window [class="^.*"] inhibit_idle fullscreen
+for_window [app_id="^.*"] inhibit_idle fullscreen
